@@ -1,0 +1,55 @@
+@use 'variables';
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+  
+@mixin button {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: variables.$shadow;
+  }
+}
+  
+@mixin card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: variables.$shadow;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+  
+@mixin responsive($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: variables.$breakpoint-mobile) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (max-width: variables.$breakpoint-tablet) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (max-width: variables.$breakpoint-desktop) {
+      @content;
+    }
+  }
+}
