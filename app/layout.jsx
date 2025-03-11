@@ -2,8 +2,8 @@
 
 import { Lora, Poppins } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import { MenuProvider } from "@/context/MenuContext";
+import Header from "@/components/layout/Header";
+import { MenuProvider } from "@/providers/MenuContext";
 
 const lora = Lora({
   subsets: ["latin"],

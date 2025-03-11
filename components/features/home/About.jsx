@@ -1,9 +1,8 @@
 'use client';
 
-import { fadeIn } from "@/variants";
+import { fadeIn } from "@/lib/variants";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Button } from "./ui/button";
 
 const About = () => {
   return (
@@ -29,7 +28,7 @@ const About = () => {
             className="xl:pl-[135px]"
         >
             <Image 
-                src="/about/img.png" 
+                src="/about/img.avif" 
                 width={705} 
                 height={771} 
                 alt="About Us"

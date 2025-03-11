@@ -37,7 +37,7 @@ import {FaUsers, FaEnvelope} from 'react-icons/fa';
 
 import {Link as ScrollLink} from 'react-scroll';
 import Image from "next/image";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
  
 
@@ -65,7 +65,7 @@ const NavMobile = ({containerStyles, iconStyles, linkStyles}) => {
                         </div>
                         {/* Logo */}
                         <Link href='/'>
-                            <Image src={'/logo.svg'} width={90} height={36} alt="logo"/>
+                            <Image src={'/logo.avif'} width={90} height={36} alt="logo"/>
                         </Link>
                         {/* nav links */}
                         <div className="flex flex-col gap-y-8">

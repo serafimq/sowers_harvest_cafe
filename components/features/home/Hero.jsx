@@ -1,9 +1,9 @@
 "use client";
 
-import { fadeIn } from "@/variants";
+import { fadeIn } from "@/lib/variants";
 import Image from "next/image";
-import { Button } from "./ui/button";
 import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
@@ -27,14 +27,14 @@ const Hero = () => {
                 initial='hidden' 
                 whileInView={'show'} 
                 viewport={{once: false, amount: 0.4}}
-                className="text-white font-semibold mb-7">
+                className="text-white font-semibold mb-5">
                     by: <span className="text-orange">Sowers Harvest Cafe</span>
                 </motion.p>
                 <motion.p
                 variants={fadeIn('down', 0.4)} 
                 initial='hidden' 
                 whileInView={'show'} 
-                viewport={{once: false, amount: 0.4}}
+                viewport={{once: false, amount: 0.1}}
                 className="text-white mb-12 max-w-lg mx-auto xl:max-w-none xl:mx-0">
                     Our team serves our guests as they would want to be served. Because each guest has immeasurable worth, we endeavor to relate to each person in a way that makes them feel valued and comfortable at our tables. As we accomplish this, Sowers becomes a
                     welcoming, peaceful space for dining, working, reading, and conversing. Our hope is that our guests will leave with a smile on their face and a heart that is warmed.
@@ -43,7 +43,7 @@ const Hero = () => {
                     variants={fadeIn('down', 0.8)} 
                     initial='hidden' 
                     whileInView={'show'} 
-                    viewport={{once: false, amount: 0.4}}
+                    viewport={{once: false, amount: 0.2}}
                 >
                     <Button>Let's eat</Button>
                 </motion.div>
@@ -54,9 +54,9 @@ const Hero = () => {
                 initial='hidden' 
                 whileInView={'show'} 
                 viewport={{once: false, amount: 0.1}}
-                className="hidden xl:flex xl:absolute xl:top-[200px] xl:right-0"
+                className="hidden xl:flex xl:absolute xl:top-[250px] xl:right-[100px]"
             >
-                <Image src='/hero/plate.png' width={756} height={628} alt="plate"/>
+                <Image src='/hero/plate.png' width={500} height={500} alt="plate"/>
             </motion.div>
         </div>
       </div>

@@ -271,7 +271,7 @@ const initialDishes = [
     },
     {
         "id": 4,
-        "name": "Aloha_Burger",
+        "name": "Aloha Burger",
         "shortDescription": "Sweet and savory Hawaiian-style burger",
         "description": "A tropical burger with housemade BBQ sauce, chipotle mayo, pineapple, bacon, and provolone cheese.",
         "ingredients": ["Beef patty", "BBQ sauce", "Chipotle mayo", "Pineapple", "Bacon", "Provolone cheese", "Burger bun"],
