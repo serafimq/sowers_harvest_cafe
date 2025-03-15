@@ -1,6 +1,7 @@
 import { useMenu } from '@/providers/MenuContext';
+import { FC, JSX } from 'react';
 
-const DishDetails = () => {
+const DishDetails: FC = (): JSX.Element | null => {
   const { selectedDish, setSelectedDish } = useMenu();
   
   if (!selectedDish) return null;
@@ -31,8 +32,8 @@ const DishDetails = () => {
               alt={selectedDish.name} 
               className="w-full h-full object-cover md:rounded-tl-[10px] md:rounded-bl-[10px]"
               onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = '/assets/images/default-dish.jpg';
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = '/assets/images/default-dish.jpg';
               }}
             />
             <div className="absolute top-4 left-4

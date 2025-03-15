@@ -6,16 +6,27 @@ import { ChevronDownIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+type AccordionProps = React.ComponentProps<typeof AccordionPrimitive.Root>;
+
 function Accordion({
   ...props
-}) {
+}: AccordionProps) {
   return <AccordionPrimitive.Root data-slot="accordion" {...props} />;
+}
+
+import { ComponentPropsWithoutRef } from 'react';
+
+interface AccordionItemProps extends ComponentPropsWithoutRef<'div'> {
+  value: string;
+  disabled?: boolean;
+  asChild?: boolean;
+  className?: string
 }
 
 function AccordionItem({
   className,
   ...props
-}) {
+}: AccordionItemProps) {
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"

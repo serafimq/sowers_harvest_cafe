@@ -4,9 +4,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import DishDetails from "./DishDetails";
 import DishList from "./DishList";
+import { FC, JSX } from "react";
 
-const MenuPage = () => {
+interface MenuPageProps {}
+
+const MenuPage: FC<MenuPageProps> = (): JSX.Element => {
     const { selectedDish } = useMenu();
+
     return (
         <section className="bg-hero py-20">
             <div className="container">

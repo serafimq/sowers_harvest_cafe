@@ -1,6 +1,11 @@
-import { useMenu } from '@/providers/MenuContext';
+import { Dish, useMenu } from '@/providers/MenuContext';
+import { JSX } from 'react';
 
-const DishCard = ({ dish }) => {
+interface DishCardProps {
+  dish: Dish;
+}
+
+const DishCard: React.FC<DishCardProps>= ({ dish }): JSX.Element => {
   const { setSelectedDish } = useMenu();
   
   return (
@@ -12,8 +17,8 @@ const DishCard = ({ dish }) => {
         <img src={dish.image} alt={dish.name} 
           className='w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105'
           onError={(e) => {
-            e.target.onerror = null;
-            e.target.src = '/assets/images/default-dish.jpg';
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = '/assets/images/default-dish.jpg';
           }}
         />
         <div className='absolute top-[10px] right-[10px] bg-primary/80 text-white px-2 py-[0.3rem] rounded-[20px] text-[0.8rem] font-medium'>

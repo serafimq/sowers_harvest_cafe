@@ -2,8 +2,9 @@
 
 import { Lora, Poppins } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/Header";
 import { MenuProvider } from "@/providers/MenuContext";
+import Header from "@/components/layout/Header";
+import { JSX, ReactNode } from "react";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -17,7 +18,11 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-export default function RootLayout({ children }) {
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
   return (
     <html lang="en">
       <body
@@ -25,7 +30,9 @@ export default function RootLayout({ children }) {
       >
         <MenuProvider>
           <Header />
-          {children}
+          <div className="bg-white">
+            {children}
+          </div>
         </MenuProvider>
       </body>
     </html>

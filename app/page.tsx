@@ -6,14 +6,15 @@ import About from "@/components/features/home/About";
 import DishDetails from "@/components/features/menu/DishDetails";
 
 import { useMenu } from "@/providers/MenuContext";
+import { JSX } from "react";
 
-export default function Home() {
+export default function Home(): JSX.Element {
     const { selectedDish } = useMenu();
-    return <main className="w-full max-w-[1440px] bg-white mx-auto overflow-hidden"> 
-              <Hero />
-              <FavoriteMenu />
-              <About />
+    return <main className="w-full max-w-[1440px] bg-white mx-auto md:w-[90%] overflow-hidden"> 
+            <Hero />
+            <FavoriteMenu />
+            <About />
 
-              {selectedDish && <DishDetails />}
-          </main>;
+            {selectedDish && <DishDetails />}
+        </main>;
 };

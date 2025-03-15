@@ -4,8 +4,11 @@ import { fadeIn } from "@/lib/variants";
 import Image from "next/image";
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button";
+import { FC, JSX } from "react";
 
-const Hero = () => {
+interface HeroProps {}
+
+const Hero: FC<HeroProps> = (): JSX.Element => {
   return (
     <section className="bg-hero bg-no-repeat relative xl:bg-cover xl:h-[1098px] py-40 pb-32 xl:py-50" id="home">
       <div className="container mx-auto">

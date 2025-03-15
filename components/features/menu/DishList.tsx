@@ -1,4 +1,4 @@
-import { useMenu } from "@/providers/MenuContext";
+import { Dish, useMenu } from "@/providers/MenuContext";
 import {
     Accordion,
     AccordionContent,
@@ -6,27 +6,29 @@ import {
     AccordionTrigger,
   } from "@/components/ui/accordion"
 import DishCard from "./DishCard";
+import { FC, JSX } from "react";
 
+const DishList: FC = (): JSX.Element => {
+    const { dishes } = useMenu();
+    
 
-const DishList = () => {
-    const { getFilteredDishes } = useMenu();
-    const filteredDishes = getFilteredDishes();
-
-    const breakfastDishes = filteredDishes.filter(dish => dish.category === "Breakfast");
-    const saladDishes = filteredDishes.filter(dish => dish.category === "Salads");
-    const burgerDishes = filteredDishes.filter(dish => dish.category === "Burgers");
+    const breakfastDishes = dishes.filter((dish: Dish) => dish.category === "Breakfast");
+    const saladDishes = dishes.filter((dish: Dish) => dish.category === "Salads");
+    const burgerDishes = dishes.filter((dish: Dish) => dish.category === "Burgers");
     
 
     return (
         <div>
             <Accordion type="single" collapsible>
-                <AccordionItem value="item-1">
+                <AccordionItem 
+                    value="item-1"
+                >
                     <AccordionTrigger 
                         className="text-white text-2xl outline-none"
                     > 
                         Breakfast
                     </AccordionTrigger>
-                    <AccordionContent>
+                    <AccordionContent className={''}>
                         {breakfastDishes.length === 0 ? (
                         <div className='text-center py-12 text-gray-600'>
                             <p className="text-[1.1rem]">No dishes found.</p>
@@ -48,7 +50,7 @@ const DishList = () => {
                 <AccordionItem value="item-1">
                     <AccordionTrigger 
                 className="text-white text-2xl outline-none">Salads</AccordionTrigger>
-                    <AccordionContent>
+                    <AccordionContent className={''}>
                         {saladDishes.length === 0 ? (
                         <div className="text-center py-12 text-gray-600">
                             <p className="text-[1.1rem]">No dishes found.</p>
@@ -70,7 +72,7 @@ const DishList = () => {
                 <AccordionItem value="item-1">
                     <AccordionTrigger 
                 className="text-white text-2xl outline-none">Specialty Burgers</AccordionTrigger>
-                    <AccordionContent>
+                    <AccordionContent className={''}>
                         {burgerDishes.length === 0 ? (
                         <div className='text-center py-12 text-gray-600'>
                             <p className="text-[1.1rem]">No dishes found.</p>

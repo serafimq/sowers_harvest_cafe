@@ -1,65 +1,17 @@
 'use client';
 
-import { useMenu } from "@/providers/MenuContext";
+import { Dish, useMenu } from "@/providers/MenuContext";
 import { fadeIn } from "@/lib/variants";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import {IoIosArrowRoundForward} from 'react-icons/io';
+import { favoriteDishes } from "@/data/initialDishes";
+import { FC, JSX } from "react";
 
-const menu = [
-    {
-        "id": 29,
-        "name": "Veggie Pesto Omelet",
-        "shortDescription": "Vegetable omelet with housemade pesto",
-        "description": "A nutritious omelet filled with onions, peppers, tomatoes, mushrooms, spinach, housemade pesto, and provolone cheese.",
-        "ingredients": ["Eggs", "Onions", "Peppers", "Tomatoes", "Mushrooms", "Spinach", "Pesto", "Provolone"],
-        "price": 13.95,
-        "image": "/omelets/Veggie_Pesto_Omelet.webp",
-        "category": "Breakfast",
-        "allergens": ["Eggs", "Milk", "Nuts"],
-        "recommended": "Delicious with a side of fresh fruit."
-    },
-    {
-        
-      "id": 35,
-      "name": "French Toast",
-      "shortDescription": "Golden French toast with sweet toppings",
-      "description": "Thick slices of golden-brown French toast, served with whipped cream, maple syrup, and a choice of chocolate chips, blueberries, strawberries, or pecans.",
-      "ingredients": ["Bread", "Eggs", "Milk", "Maple syrup", "Choice of toppings"],
-      "price": 13.50,
-      "image": "/breakfast/French_Toast.webp",
-      "category": "Breakfast",
-      "allergens": ["Eggs", "Milk", "Gluten"],
-      "recommended": "Goes great with a hot latte."
-    },
-    {
-      "id": 1,
-      "name": "Harvest Salad",
-      "shortDescription": "Spinach salad with turkey, feta, apples, and pecans",
-      "description": "A refreshing salad with fresh spinach, turkey, feta cheese, apples, pecans, and housemade honey poppy seed dressing.",
-      "ingredients": ["Spinach", "Turkey", "Feta", "Apples", "Pecans", "Honey poppy seed dressing"],
-      "price": 13.25,
-      "image": "/salads/Harvest_Salad.webp",
-      "category": "Salads",
-      "allergens": ["Milk", "Nuts"],
-      "recommended": "Perfect with a side of warm bread."
-  },
-  {
-      "id": 4,
-      "name": "Aloha Burger",
-      "shortDescription": "Sweet and savory Hawaiian-style burger",
-      "description": "A tropical burger with housemade BBQ sauce, chipotle mayo, pineapple, bacon, and provolone cheese.",
-      "ingredients": ["Beef patty", "BBQ sauce", "Chipotle mayo", "Pineapple", "Bacon", "Provolone cheese", "Burger bun"],
-      "price": 12.95,
-      "image": "/burgers/Aloha_Burger.webp",
-      "category": "Burgers",
-      "allergens": ["Gluten", "Milk"],
-      "recommended": "Great with a refreshing lemonade."
-  }
-]
+interface MenuProps {}
 
-const Menu = () => {
+const Menu: FC<MenuProps> = (): JSX.Element => {
   const { setSelectedDish } = useMenu();
   return (
     <section className="relative py-12 xl:py-36" id="menu">
@@ -85,10 +37,10 @@ const Menu = () => {
             viewport={{once: false, amount: 0.2}}
             className="grid grid-cols-1 gap-x-[30px] md:grid-cols-3 md:gap-[15px] xl:grid-cols-4"
         >
-            {menu.map((item, index) => (
+            {favoriteDishes.map((item: Dish, index) => (
                 <motion.div 
                     key={index} 
-                    variants={fadeIn} 
+                    variants={fadeIn('up', 0.4)} 
                     className="max-w-[270px] mx-auto bg-white shadow-primary xl:mx-0 group"
                 >   
                     {/* image */}
