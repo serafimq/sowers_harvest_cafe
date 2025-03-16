@@ -35,11 +35,16 @@ function AccordionItem({
   );
 }
 
+interface AccordionTriggerProps extends React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> {
+  className?: string;
+  children: React.ReactNode;
+}
+
 function AccordionTrigger({
   className,
   children,
   ...props
-}) {
+}: AccordionTriggerProps) {
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
@@ -57,11 +62,16 @@ function AccordionTrigger({
   );
 }
 
+interface AccordionContentProps extends React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content> {
+  className?: string;
+  children: React.ReactNode;
+}
+
 function AccordionContent({
   className,
   children,
   ...props
-}) {
+}: AccordionContentProps) {
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"

@@ -1,4 +1,7 @@
-const initialDishes = [
+import { Dish, DishCategory } from '@/types/dish';
+
+// Breakfast dishes
+const breakfastDishes: Dish[] = [
     {
         "id": 22,
         "name": "Cheese Omelet",
@@ -51,7 +54,6 @@ const initialDishes = [
         "recommended": "Try it with a side of hash browns.",
         'isFavorite': false
     },
-    // Breakfast
     {
         "id": 35,
         "name": "French Toast",
@@ -155,8 +157,11 @@ const initialDishes = [
         "allergens": ["Gluten", "Milk"],
         "recommended": "Goes great with a fresh fruit cup.",
         'isFavorite': false
-    }, 
-    // Salads
+    }
+];
+
+// Salad dishes
+const saladDishes: Dish[] = [
     {
         "id": 1,
         "name": "Harvest Salad",
@@ -247,9 +252,13 @@ const initialDishes = [
         "allergens": ["Milk"],
         "recommended": "A great side dish for any meal.",
         'isFavorite': false
-    },
+    }
+];
+
+// Burger dishes
+const burgerDishes: Dish[] = [
     {
-        "id": 1,
+        "id": 8,
         "name": "Jallelujah Harvest",
         "shortDescription": "BBQ burger with a kick",
         "description": "A smoky BBQ burger with housemade sauce, mayo, and a perfectly grilled beef patty.",
@@ -262,7 +271,7 @@ const initialDishes = [
         'isFavorite': false
     },
     {
-        "id": 2,
+        "id": 9,
         "name": "Sowers BBQ Burger",
         "shortDescription": "BBQ burger with a smoky twist",
         "description": "A juicy beef patty topped with housemade BBQ sauce, mayo, and melted American cheese.",
@@ -275,7 +284,7 @@ const initialDishes = [
         'isFavorite': false
     },
     {
-        "id": 3,
+        "id": 10,
         "name": "Bleu Moon Burger",
         "shortDescription": "Spicy buffalo burger with bleu cheese",
         "description": "A bold burger with hot sauce, ranch, bleu cheese, and melted swiss cheese.",
@@ -288,7 +297,7 @@ const initialDishes = [
         'isFavorite': false
     },
     {
-        "id": 4,
+        "id": 11,
         "name": "Aloha Burger",
         "shortDescription": "Sweet and savory Hawaiian-style burger",
         "description": "A tropical burger with housemade BBQ sauce, chipotle mayo, pineapple, bacon, and provolone cheese.",
@@ -302,8 +311,26 @@ const initialDishes = [
     }
 ];
 
-const favoriteDishes = initialDishes.filter(dish => dish.isFavorite);
+// Combine all dishes
+const initialDishes: Dish[] = [
+    ...breakfastDishes,
+    ...saladDishes,
+    ...burgerDishes
+];
 
-export { favoriteDishes };
+// Filter favorite dishes
+const favoriteDishes: Dish[] = initialDishes.filter(dish => dish.isFavorite);
+
+// Get dishes by category
+export const getDishesByCategory = (category: DishCategory): Dish[] => {
+    return initialDishes.filter(dish => dish.category === category);
+};
+
+export { 
+    favoriteDishes,
+    breakfastDishes,
+    saladDishes,
+    burgerDishes
+};
 
 export default initialDishes;

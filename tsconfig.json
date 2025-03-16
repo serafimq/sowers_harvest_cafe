@@ -11,7 +11,8 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
     "module": "esnext",
@@ -30,8 +31,10 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "postcss.config.js", "tailwind.config.js"  ],
+    "**/*.tsx",
+    "postcss.config.js", 
+    "tailwind.config.js"
+  ],
   "exclude": [
     "node_modules"
   ]

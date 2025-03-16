@@ -1,4 +1,6 @@
-export const fadeIn = (direction, delay) => {
+import { Direction, AnimationVariant } from '@/types/animations';
+
+export const fadeIn = (direction: Direction, delay: number): AnimationVariant => {
   return {
     hidden: {
       y: direction === 'up' ? 80 : direction === 'down' ? -80 : 0,
