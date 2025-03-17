@@ -311,11 +311,70 @@ const burgerDishes: Dish[] = [
     }
 ];
 
+// Drinks dishes
+const drinks: Dish[] = [
+  {
+    id: 101,
+    name: "Bottled Beer Offerings",
+    shortDescription: "Премиальное пиво в бутылках",
+    description: "Насладитесь нашей коллекцией премиального пива в бутылках от лучших производителей во всем мире.",
+    ingredients: [
+      "Stella", "Blue Moon", "Red Stripe", "Corona", "Yuengling", 
+      "Sweetwater 420", "Bud Light", "Michelob Ultra", "Redd's Apple Ale", 
+      "Heineken", "Budweiser", "Coors Light", "Guinness"
+    ],
+    price: 8,
+    image: "/menu/beer.jpg",
+    category: "Drinks",
+    allergens: ["Глютен", "Ячмень"],
+    isFavorite: false
+  },
+  {
+    id: 102,
+    name: "Домашнее крафтовое пиво",
+    shortDescription: "Наше фирменное крафтовое пиво",
+    description: "Варится по уникальному рецепту нашего пивовара с использованием лучших сортов хмеля и солода.",
+    ingredients: ["Пиво", "Хмель", "Солод", "Вода"],
+    price: 10,
+    image: "/menu/beer-craft.jpg",
+    category: "Drinks",
+    allergens: ["Глютен", "Ячмень"],
+    recommended: "Идеально сочетается с нашими фирменными бургерами",
+    isFavorite: false
+  },
+  {
+    id: 103,
+    name: "Винная карта",
+    shortDescription: "Подборка вин со всего мира",
+    description: "Тщательно отобранная коллекция вин из лучших винодельческих регионов мира.",
+    ingredients: ["Вино", "Красное", "Белое", "Розовое"],
+    price: 12,
+    image: "/menu/wine.jpg",
+    category: "Drinks",
+    allergens: ["Сульфиты"],
+    isFavorite: false
+  },
+  {
+    id: 104,
+    name: "Домашний лимонад",
+    shortDescription: "Освежающий лимонад с мятой",
+    description: "Приготовленный вручную лимонад с свежевыжатым лимонным соком, мятой и тростниковым сахаром.",
+    ingredients: ["Лимон", "Мята", "Сахар", "Газированная вода"],
+    price: 5,
+    image: "/menu/lemonade.jpg",
+    category: "Drinks",
+    allergens: [],
+    recommended: "Наш самый популярный безалкогольный напиток",
+    isFavorite: false
+  }
+];
+
 // Combine all dishes
 const initialDishes: Dish[] = [
     ...breakfastDishes,
     ...saladDishes,
-    ...burgerDishes
+    ...burgerDishes,
+    ...drinks
 ];
 
 // Filter favorite dishes
@@ -330,7 +389,8 @@ export {
     favoriteDishes,
     breakfastDishes,
     saladDishes,
-    burgerDishes
+    burgerDishes,
+    drinks
 };
 
 export default initialDishes;

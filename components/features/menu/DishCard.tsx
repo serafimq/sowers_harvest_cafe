@@ -1,4 +1,5 @@
-import { Dish, useMenu } from '@/providers/MenuContext';
+import { useMenu } from '@/providers/MenuContext';
+import { Dish } from '@/types/dish';
 import { JSX } from 'react';
 
 interface DishCardProps {

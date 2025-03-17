@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { JSX, useState } from "react";
 import {RiMenu2Line} from 'react-icons/ri';
 import {IoCloseOutline} from 'react-icons/io5';
+import { usePathname } from "next/navigation";
 
 import Image from "next/image";
 import links from "@/data/navLinks";
@@ -17,6 +18,8 @@ interface NavMobileProps {
 
 const NavMobile: React.FC<NavMobileProps> = ({ containerStyles = "", iconStyles = "", linkStyles = "", isActive }): JSX.Element => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const pathname = usePathname();
+    
     return (
         <div className={containerStyles}>
             {/* nav trigger btn */}
@@ -47,17 +50,35 @@ const NavMobile: React.FC<NavMobileProps> = ({ containerStyles = "", iconStyles 
                         </Link>
                         {/* nav links */}
                         <div className="flex flex-col gap-y-8">
-                            {links.map((link, index) => (
-                                <Link 
-                                    key={index} 
-                                    href={link.path}
-                                    className={`${linkStyles} capitalize text-white text-xl flex items-center gap-x-3`}
-                                >
-                                    <div className={`${iconStyles}`}>{<link.icon />}</div>
-                                    <div className={`${linkStyles}`}>{link.name}</div>
-                                    
-                                </Link>
-                            ))}
+                            {links.map((link, index) => {
+                                const isLinkActive = pathname === link.path;
+                                
+                                return (
+                                    <Link 
+                                        key={index} 
+                                        href={link.path}
+                                        className={`
+                                            ${linkStyles} 
+                                            capitalize text-xl flex items-center gap-x-3
+                                            ${isLinkActive 
+                                                ? 'text-orange underline pointer-events-none' 
+                                                : 'text-white hover:text-orange'
+                                            }
+                                        `}
+                                        onClick={() => {
+                                            if (!isLinkActive) {
+                                                setIsOpen(false);
+                                            }
+                                        }}
+                                        aria-current={isLinkActive ? 'page' : undefined}
+                                    >
+                                        <div className={`${iconStyles} ${isLinkActive ? 'text-orange' : ''}`}>
+                                            {<link.icon />}
+                                        </div>
+                                        <div className={`${linkStyles}`}>{link.name}</div>
+                                    </Link>
+                                );
+                            })}
                         </div>
                     </div>
             </aside>

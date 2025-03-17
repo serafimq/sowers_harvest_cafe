@@ -14,7 +14,7 @@ const MenuPage: FC<MenuPageProps> = (): JSX.Element => {
     return (
         <section className="bg-hero py-20">
             <div className="container">
-                <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-[24px] p-8 md:p-12 xl:py-20 xl:p-0 items-center">
+                <div className="sm:hidden grid grid-cols-1 xl:grid-cols-2 gap-x-[24px] p-8 md:p-12 xl:py-20 xl:p-0 items-center">
                     {/* text */}
                     <motion.div 
                         variants={fadeIn('right', 0.3)}

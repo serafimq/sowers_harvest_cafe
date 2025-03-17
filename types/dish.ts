@@ -1,5 +1,5 @@
 // Определяем тип категорий на основе фактических данных
-export type DishCategory = 'Breakfast' | 'Salads' | 'Burgers';
+export type DishCategory = 'Breakfast' | 'Salads' | 'Burgers' | 'Drinks';
 
 export interface Dish {
   id: number;

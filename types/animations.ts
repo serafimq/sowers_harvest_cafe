@@ -1,6 +1,8 @@
+import { Variants } from 'framer-motion';
+
 export type Direction = 'up' | 'down' | 'left' | 'right';
 
-export interface AnimationVariant {
+export interface AnimationVariant extends Variants {
   hidden: {
     y?: number;
     x?: number;
