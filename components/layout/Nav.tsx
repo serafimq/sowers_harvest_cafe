@@ -22,7 +22,7 @@ const Nav: React.FC<NavProps> = (
           className={`
             ${isActive ? "text-orange" : "text-white"}
             ${pathname === link.path ? 'border-b-2': ''}
-            ${linkStyles} uppercase font-light`
+            ${linkStyles} font-light`
           }
         >
           {link.name}

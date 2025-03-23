@@ -1,0 +1,12 @@
+Place the following images for the team here:
+
+1. director.jpg - photo of the CEO
+2. chef.jpg - photo of the Head Chef
+3. sous-chef.jpg - photo of the Sous Chef
+4. operations.jpg - photo of the Operations Director
+5. pastry.jpg - photo of the Pastry Chef
+6. marketing.jpg - photo of the Marketing Manager
+7. host.jpg - photo of the Administrator
+8. sommelier.jpg - photo of the Sommelier
+
+All images should be square with 1:1 proportions for correct display on the team page. 

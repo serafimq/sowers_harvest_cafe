@@ -14,7 +14,7 @@ const MenuHero: FC = (): JSX.Element => {
           initial='hidden'
           whileInView={'show'}
           viewport={{once: false, amount: 0.2}}
-          className="grid sm:grid-cols-2 md:grid-cols-4 sm:grid-rows-auto md:grid-rows-5 gap-4 h-auto md:h-[800px]"
+          className="grid sm:grid-cols-2 md:grid-cols-4 sm:grid-rows-auto md:grid-rows-4 gap-3 h-auto md:h-[800px]"
         >
           {/* Блок 1 - верхний левый большой */}
           <motion.div 
@@ -22,17 +22,18 @@ const MenuHero: FC = (): JSX.Element => {
             className="sm:col-span-2 md:col-span-2 sm:row-span-1 md:row-span-2 overflow-hidden rounded-2xl border border-gray-200 flex flex-col bg-white"
           >
             <div className="p-6 md:p-8">
-                <h2 className="text-gray-800 mb-7">Quality, local and ethically sourced foods</h2>              
+                <h2 className="text-gray-800 mb-2 text-center">Quality, local and ethically sourced foods</h2> 
+                <p className="text-gray-800 mb-7">Our goal is to procure coffee and cuisine that is healthy for the body, mind, and spirit. As much as we can, we seek out local products and healthy ingredients so that we can do our part to have a positive impact on the grower, the consumer, and our environment. Because of this focus, our guests experience a fresh quality in our coffee and cuisine.</p>
             </div>
           </motion.div>
 
           {/* Блок 2 - вертикальный в центре вверху */}
           <motion.div 
             variants={fadeIn('left', 0.4)}
-            className="sm:col-span-1 md:row-span-3 md:col-start-3 overflow-hidden rounded-2xl border border-gray-200 bg-white"
+            className="flex flex-col sm:col-span-1 md:row-span-3 md:col-start-3 overflow-hidden rounded-2xl border border-gray-200 bg-white"
           >
             <div className="p-6 border-b border-gray-100">
-              <h3 className="text-2xl md:text-4xl font-serif text-gray-800">WEDNESDAY</h3>
+              <h3 className="text-xl text-center md:text-2xl font-serif text-gray-800 uppercase">Wednesday</h3>
             </div>
             <div className="relative flex-1 h-48 md:h-96">
               <Image
@@ -49,14 +50,16 @@ const MenuHero: FC = (): JSX.Element => {
             variants={fadeIn('left', 0.4)}
             className="sm:col-span-1 md:row-span-2 md:col-start-4 overflow-hidden rounded-2xl border border-gray-200 flex flex-col bg-white"
           >
-            <div className="p-6 flex-1 flex flex-col">
-              <h3 className="text-2xl md:text-4xl font-serif mb-3 text-gray-800">SATURDAY</h3>
-              <p className="text-sm text-gray-600 mb-4 flex-1">
-                Нежный французский тост, украшенный сезонными фруктами, йогуртом и кленовым сиропом.
-              </p>
-              <div className="h-32 sm:h-36 md:h-48 relative overflow-hidden rounded-xl">
+            <div className="flex-1 flex flex-col justify-between">
+              <div className="p-3 flex flex-col">
+                <h2 className="text-lg md:text-2xl text-center font-serif mb-2 text-gray-800 uppercase">Saturday</h2>
+                <p className="text-sm text-gray-600 mb-4 flex-1 align-middle">
+                  A delicate French toast topped with seasonal fruits, whipped cream, and maple syrup.
+                </p>
+              </div>
+              <div className="h-32 sm:h-36 md:h-48 relative overflow-hidden">
                 <Image
-                  src="/menu/saturday-special.webp"
+                  src="/breakfast/French_Toast.webp"
                   alt="Saturday Special"
                   fill
                   className="object-cover"
@@ -71,11 +74,10 @@ const MenuHero: FC = (): JSX.Element => {
             className="sm:col-span-2 md:col-span-2 sm:row-span-1 md:row-span-2 md:col-start-2 md:row-start-4 overflow-hidden rounded-2xl border border-gray-200 flex flex-col justify-center items-center bg-white"
           >
             <div className="p-6 md:p-10 text-center">
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-[#A04E32] tracking-wide mb-4">WE BRUNCH!</h2>
+              <h3 className="text-3xl md:text-5xl lg:text-6xl font-serif text-[#A04E32] tracking-wide mb-4">We brunch!</h3>
               <div className="w-20 h-1 bg-[#A04E32] mx-auto mb-4"></div>
               <p className="text-gray-600">
-                Наслаждайтесь нашим фирменным бранчем каждые выходные с 10:00 до 15:00. 
-                Более 20 авторских блюд от шеф-повара.
+                Enjoy our signature brunch every weekend from 10:00 AM to 3:00 PM.
               </p>
             </div>
           </motion.div>
@@ -108,7 +110,7 @@ const MenuHero: FC = (): JSX.Element => {
             className="sm:col-span-1 md:col-start-2 md:row-start-3 overflow-hidden rounded-2xl border border-gray-200 bg-white flex flex-col"
           >
             <div className="p-5 border-b border-gray-100">
-              <h3 className="text-2xl md:text-3xl font-serif text-gray-800">THURSDAY</h3>
+              <h3 className="text-2xl text-center md:text-3xl font-serif text-gray-800 uppercase">Thursday</h3>
             </div>
             <div className="flex-1 relative h-36 md:h-auto">
               <Image
@@ -126,7 +128,7 @@ const MenuHero: FC = (): JSX.Element => {
             className="sm:col-span-1 md:col-start-4 md:row-start-3 overflow-hidden rounded-2xl border border-gray-200 bg-white flex flex-col"
           >
             <div className="p-5 border-b border-gray-100">
-              <h3 className="text-lg md:text-xl font-serif text-gray-800">CAKE OF THE DAY</h3>
+              <h3 className="text-lg md:text-xl font-serif text-center text-gray-800 uppercase">Dish of the day</h3>
             </div>
             <div className="flex-1 relative h-36 md:h-auto">
               <Image
@@ -144,7 +146,7 @@ const MenuHero: FC = (): JSX.Element => {
             className="sm:col-span-1 md:row-span-2 md:col-start-4 md:row-start-4 overflow-hidden rounded-2xl border border-gray-200 flex flex-col bg-white"
           >
             <div className="p-6 border-b border-gray-100">
-              <h3 className="text-2xl md:text-3xl font-serif text-gray-800">SUNDAY</h3>
+              <h3 className="text-2xl md:text-3xl font-serif text-gray-800 uppercase">Thursday</h3>
             </div>
             <div className="relative flex-1 h-36 md:h-auto">
               <Image
@@ -155,7 +157,7 @@ const MenuHero: FC = (): JSX.Element => {
               />
             </div>
             <div className="p-4 text-xs text-gray-600">
-              Наш фирменный бургер с мраморной говядиной, ароматными травами и соусом из трюфеля.
+              Our signature burger with marbled beef, aromatic herbs, and truffle sauce.
             </div>
           </motion.div>
         </motion.div>

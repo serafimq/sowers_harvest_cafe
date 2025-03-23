@@ -54,7 +54,7 @@ const Header: React.FC<HeaderProps> = (): JSX.Element => {
             <Nav
                 isActive={active}
                 containerStyles={'hidden xl:flex gap-x-12 text-white'}
-                linkStyles='capitalize'
+                linkStyles='uppercase'
             />
 
             {/* mobile-nav */}
