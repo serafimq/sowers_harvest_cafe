@@ -15,4 +15,4 @@ export interface Dish {
   isFavorite: boolean;
 }
 
-export type NewDish = Omit<Dish, 'id'>; 
+export type NewDish = Omit<Dish, 'id'>;

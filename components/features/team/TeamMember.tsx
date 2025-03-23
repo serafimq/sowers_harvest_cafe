@@ -9,32 +9,22 @@ interface TeamMemberProps {
   imageUrl: string;
 }
 
-const TeamMember = ({
-  name,
-  role,
-  description,
-  imageUrl,
-}: TeamMemberProps) => {
+const TeamMember = ({ name, role, description, imageUrl }: TeamMemberProps) => {
   return (
-    <div 
+    <div
       className={`flex flex-col h-full bg-white overflow-hidden rounded-lg shadow-md transition-transform duration-300 hover:shadow-lg hover:-translate-y-1
       }`}
     >
       <div className="relative w-full aspect-square">
         {imageUrl ? (
-          <Image
-            src={imageUrl}
-            alt={`Фото ${name}`}
-            fill
-            className="object-cover"
-          />
+          <Image src={imageUrl} alt={`Фото ${name}`} fill className="object-cover" />
         ) : (
           <div className="w-full h-full bg-gray-200 flex items-center justify-center">
             <span className="text-gray-400">Нет фото</span>
           </div>
         )}
       </div>
-      
+
       <div className="p-4 flex flex-col flex-grow">
         <h3 className="text-xl font-semibold mb-1">{name}</h3>
         <p className="text-sm text-gray-600 mb-3">{role}</p>
@@ -44,4 +34,4 @@ const TeamMember = ({
   );
 };
 
-export default TeamMember; 
+export default TeamMember;

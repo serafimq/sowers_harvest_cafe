@@ -1,0 +1,24 @@
+# Игнорируем директории сборки и зависимостей
+node_modules
+.next
+build
+out
+dist
+coverage
+
+# Игнорируем статические файлы
+public
+next-env.d.ts
+
+# Игнорируем конфигурационные файлы
+.eslintrc.js
+prettier.config.js
+next.config.js
+next.config.mjs
+tailwind.config.js
+postcss.config.js
+postcss.config.mjs
+
+# Игнорируем сгенерированные файлы
+**/*.js.map
+**/*.d.ts 

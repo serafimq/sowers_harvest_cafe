@@ -1,6 +1,7 @@
-import { useMenu } from '@/providers/MenuContext';
 import { FC, JSX, useRef, useCallback, useEffect } from 'react';
+
 import useClickOutside from '@/hooks/useClickOutside';
+import { useMenu } from '@/providers/MenuContext';
 
 type SectionProps = {
   title: string;
@@ -17,46 +18,47 @@ const Section: FC<SectionProps> = ({ title, children }) => (
 const DishDetails: FC = (): JSX.Element | null => {
   const { selectedDish, setSelectedDish } = useMenu();
   const modalRef = useRef<HTMLDivElement>(null);
-  
-  if (!selectedDish) return null;
-  
   const handleClose = useCallback(() => setSelectedDish(null), [setSelectedDish]);
-  
+
   useClickOutside(modalRef, handleClose);
-  
+
   useEffect(() => {
+    if (!selectedDish) return;
+
     const originalStyle = window.getComputedStyle(document.body).overflow;
     document.body.style.overflow = 'hidden';
-    
+
     return () => {
       document.body.style.overflow = originalStyle;
     };
-  }, []);
-  
+  }, [selectedDish]);
+
+  if (!selectedDish) return null;
+
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     e.currentTarget.onerror = null;
     e.currentTarget.src = '/assets/images/default-dish.jpg';
   };
-  
+
   return (
     <div className="fixed inset-0 bg-black/70 z-[1000] flex items-center justify-center p-4 sm:p-8">
-      <div 
+      <div
         ref={modalRef}
         className="relative bg-white rounded-[10px] w-full max-w-[1000px] max-h-[90vh] overflow-y-auto animate-slideIn"
       >
-        <button 
+        <button
           className="absolute top-4 right-4 bg-white/70 border-none rounded-full w-9 h-9 text-[1.8rem] leading-[1] flex items-center justify-center z-10 cursor-pointer hover:bg-white"
           onClick={handleClose}
           aria-label="Закрыть"
         >
           ×
         </button>
-        
+
         <div className="flex flex-col md:flex-row">
           <div className="relative w-full h-[300px] md:w-1/2 md:h-auto">
-            <img 
-              src={selectedDish.image} 
-              alt={selectedDish.name} 
+            <img
+              src={selectedDish.image}
+              alt={selectedDish.name}
               className="w-full h-full object-cover md:rounded-tl-[10px] md:rounded-bl-[10px]"
               onError={handleImageError}
             />
@@ -64,15 +66,15 @@ const DishDetails: FC = (): JSX.Element | null => {
               {selectedDish.category}
             </div>
           </div>
-          
+
           <div className="w-full p-6 md:w-1/2 md:p-8">
             <h2 className="text-primary text-[1.8rem] mb-4">{selectedDish.name}</h2>
-            
+
             <div className="flex items-center justify-between mb-6">
               <div className="text-[1.5rem] font-bold text-accent">
                 ${selectedDish.price.toFixed(2)}
               </div>
-              
+
               {selectedDish.allergens.length > 0 && (
                 <div className="text-sm text-gray-600">
                   <span className="font-semibold mr-1">Contains:</span>
@@ -80,11 +82,11 @@ const DishDetails: FC = (): JSX.Element | null => {
                 </div>
               )}
             </div>
-            
+
             <Section title="Description">
               <p className="leading-6 text-gray-600">{selectedDish.description}</p>
             </Section>
-            
+
             <Section title="Ingredients">
               <ul className="list-none flex flex-wrap gap-2 mt-2">
                 {selectedDish.ingredients.map((ingredient, index) => (
@@ -94,7 +96,7 @@ const DishDetails: FC = (): JSX.Element | null => {
                 ))}
               </ul>
             </Section>
-            
+
             {selectedDish.recommended && (
               <Section title="Chef's Note">
                 <p className="italic mt-4 p-4 border-l-4 border-secondary rounded-r-[4px] bg-gray-50">

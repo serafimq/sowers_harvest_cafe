@@ -25,4 +25,4 @@ export interface AnimationVariant extends Variants {
       ease: number[];
     };
   };
-} 
+}

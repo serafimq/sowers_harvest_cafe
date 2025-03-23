@@ -1,27 +1,28 @@
-import { RiHomeFill } from 'react-icons/ri';
 import { BiSolidFoodMenu } from 'react-icons/bi';
 import { FaUsers, FaEnvelope } from 'react-icons/fa';
+import { RiHomeFill } from 'react-icons/ri';
+
 import { NavLink } from '@/types/navigation';
 
 const links: NavLink[] = [
-  { 
-    path: "/",
-    name: "home",
-    icon: RiHomeFill
+  {
+    path: '/',
+    name: 'home',
+    icon: RiHomeFill,
   },
-  { 
-    path: "/menu",
-    name: "menu",
+  {
+    path: '/menu',
+    name: 'menu',
     icon: BiSolidFoodMenu,
   },
-  { 
-    path: "/team",
-    name: "team",
+  {
+    path: '/team',
+    name: 'team',
     icon: FaUsers,
   },
-  { 
-    path: "/gallery",
-    name: "gallery",
+  {
+    path: '/gallery',
+    name: 'gallery',
     icon: FaEnvelope,
   },
 ];

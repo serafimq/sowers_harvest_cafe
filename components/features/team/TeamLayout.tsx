@@ -1,10 +1,11 @@
 'use client';
 
-import TeamMember from './TeamMember';
 import { teamMembers } from '@/data/teamMembers';
 
+import TeamMember from './TeamMember';
+
 // Расширяем интерфейс из data/teamMembers.ts
-interface TeamMemberData extends Omit<typeof teamMembers[0], 'isDirector'> {
+interface TeamMemberData extends Omit<(typeof teamMembers)[0], 'isDirector'> {
   isDirector?: boolean;
 }
 
@@ -16,7 +17,7 @@ const TeamLayout = ({ members }: TeamLayoutProps) => {
   return (
     <div className="w-full max-w-7xl mx-auto px-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {members.map((member) => (
+        {members.map(member => (
           <TeamMember
             key={member.id}
             name={member.name}
@@ -30,4 +31,4 @@ const TeamLayout = ({ members }: TeamLayoutProps) => {
   );
 };
 
-export default TeamLayout; 
+export default TeamLayout;
