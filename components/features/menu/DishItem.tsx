@@ -28,7 +28,11 @@ const DishItem: FC<DishItemProps> = ({ dish }) => {
         >
           {dish.name}
         </h3>
-        <span className="text-2xl font-serif text-red-600">${dish.price}</span>
+        <div className="mt-2">
+          <span className="text-2xl font-serif text-red-600">
+            ${(dish.price.default ?? Object.values(dish.price)[0])?.toFixed(2)}
+          </span>
+        </div>
       </div>
       <div className="mt-2 text-gray-600">
         {dish.ingredients &&

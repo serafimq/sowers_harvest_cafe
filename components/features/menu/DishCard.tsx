@@ -35,7 +35,9 @@ const DishCard: React.FC<DishCardProps> = ({ dish }): JSX.Element => {
         <p className="text-[0.9rem] leading-5 mb-2 text-gray-600 line-clamp-2">
           {dish.shortDescription}
         </p>
-        <div className="font-bold text-[1.1rem] text-accent">${dish.price.toFixed(2)}</div>
+        <div className="font-bold text-[1.1rem] text-accent">
+          ${(dish.price.default ?? Object.values(dish.price)[0])?.toFixed(2)}
+        </div>
       </div>
     </div>
   );

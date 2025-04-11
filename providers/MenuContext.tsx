@@ -1,13 +1,13 @@
 import React, { createContext, useState, useContext, ReactNode, useMemo, JSX } from 'react';
 
 import dishes from '@/data/initialDishes';
-import { Dish, NewDish } from '@/types/dish';
+import { Dish } from '@/types/dish';
 
 interface MenuContextState {
   dishes: Dish[];
   selectedDish: Dish | null;
   setSelectedDish: (dish: Dish | null) => void;
-  addDish: (dish: NewDish) => void;
+  addDish: (dish: Dish) => void;
   updateDish: (updatedDish: Dish) => void;
   deleteDish: (id: number) => void;
 }
@@ -35,7 +35,7 @@ export const MenuProvider = ({ children }: MenuProviderProps): JSX.Element => {
   const [selectedDish, setSelectedDish] = useState<Dish | null>(null);
 
   // Add a new dish
-  const addDish = (newDish: NewDish): void => {
+  const addDish = (newDish: Dish): void => {
     const newId = dishes.length > 0 ? Math.max(...dishes.map(dish => dish.id)) + 1 : 1;
 
     setDishes(prevDishes => [...prevDishes, { ...newDish, id: newId }]);

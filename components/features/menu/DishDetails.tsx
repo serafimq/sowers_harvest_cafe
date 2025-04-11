@@ -72,7 +72,12 @@ const DishDetails: FC = (): JSX.Element | null => {
 
             <div className="flex items-center justify-between mb-6">
               <div className="text-[1.5rem] font-bold text-accent">
-                ${selectedDish.price.toFixed(2)}
+                {/* Цена */}
+                <div className="mt-4">
+                  <span className="text-2xl font-serif text-red-600">
+                    ${(selectedDish.price.default ?? Object.values(selectedDish.price)[0])?.toFixed(2)}
+                  </span>
+                </div>
               </div>
 
               {selectedDish.allergens.length > 0 && (

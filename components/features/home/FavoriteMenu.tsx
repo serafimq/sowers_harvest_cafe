@@ -8,7 +8,8 @@ import { IoIosArrowRoundForward } from 'react-icons/io';
 
 import { favoriteDishes } from '@/data/initialDishes';
 import { fadeIn } from '@/lib/variants';
-import { Dish, useMenu } from '@/providers/MenuContext';
+import { useMenu } from '@/providers/MenuContext';
+import { Dish } from '@/types/dish';
 
 interface MenuProps {}
 
@@ -60,9 +61,15 @@ const Menu: FC<MenuProps> = (): JSX.Element => {
               {/* title & price */}
               <div className="pt-[20px] pb-[26px] px-[30px]">
                 <Link href={'/menu'}>
-                  <h3 className="font-poppins text-black mb-[14px]">{item.name}</h3>
+                  <div className="flex items-center justify-between">
+                    <div className="flex flex-col">
+                      <h3 className="font-poppins text-black mb-[14px]">{item.name}</h3>
+                      <div className="text-xl font-poppins font-semibold text-orange">
+                        ${(item.price.default ?? Object.values(item.price)[0])?.toFixed(2)}
+                      </div>
+                    </div>
+                  </div>
                 </Link>
-                <div className="text-xl font-poppins font-semibold text-orange">${item.price}</div>
               </div>
             </motion.div>
           ))}
