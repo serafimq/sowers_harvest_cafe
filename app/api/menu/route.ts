@@ -1,28 +1,45 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 import connectToDatabase from '@/lib/db';
 import MenuItem, { IMenuItem } from '@/models/MenuItem';
 import { Dish, DishCategory } from '@/types/dish';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
     await connectToDatabase();
-    const menuItems: IMenuItem[] = await MenuItem.find({});
+
+    // Получаем параметр категории из URL
+    const category = request.nextUrl.searchParams.get('category') as DishCategory | null;
+
+    // Формируем фильтр для запроса
+    const filter: Partial<Pick<IMenuItem, 'category'>> = {};
+    if (category) {
+      filter.category = category;
+    }
+
+    // Используем фильтр в запросе find
+    const menuItems: IMenuItem[] = await MenuItem.find(filter);    
 
     const dishes: Dish[] = menuItems.map(item => {
       const plainItem = item.toObject(); // Преобразуем Mongoose документ в простой объект
+      
+      // Явно преобразуем Mongoose Map в обычный объект
+      const priceObject = plainItem.price instanceof Map 
+        ? Object.fromEntries(plainItem.price) 
+        : plainItem.price; // На случай, если это уже объект (маловероятно, но безопасно)
+
       return {
-        id: (item._id as any).toString(), // Явное приведение типа для _id
+        id: (item._id as any).toString(),
         name: plainItem.name,
         shortDescription: plainItem.shortDescription,
         description: plainItem.description,
         ingredients: plainItem.ingredients,
-        price: plainItem.price, // Цена уже должна быть в формате { [size: string]: number }
+        price: priceObject, // Используем преобразованный объект
         image: plainItem.image,
-        category: plainItem.category as DishCategory, // Убедимся, что категория соответствует DishCategory
+        category: plainItem.category as DishCategory,
         allergens: plainItem.allergens,
         recommended: plainItem.recommended,
         isFavorite: plainItem.isFavorite,
-        isAvailable: plainItem.isAvailable, // Явно добавляем isAvailable
+        isAvailable: plainItem.isAvailable,
       };
     });
     
